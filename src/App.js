@@ -1,6 +1,8 @@
 import { useReducer } from "react";
 import { DirectionContext, DispatchContext } from "./contexts";
 import reducer from "./reducer";
+import Buttons from "./Buttons";
+import Words from "./Words";
 
 const initialState = {
   reversed: false
