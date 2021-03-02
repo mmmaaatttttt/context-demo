@@ -1,5 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import { useReducer } from "react";
+
+const initialState = {
+  reversed: false
+};
 
 function App() {
   return (
