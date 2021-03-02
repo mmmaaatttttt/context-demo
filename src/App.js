@@ -1,27 +1,23 @@
 import { useReducer } from "react";
+import { DirectionContext, DispatchContext } from "./contexts";
+import reducer from "./reducer";
 
 const initialState = {
   reversed: false
 };
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DirectionContext.Provider value={{ reversed: state.reversed }}>
+      <DispatchContext.Provider value={{ dispatch }}>
+        <main>
+          <Buttons/>
+          <Words/>
+        </main>
+      </DispatchContext.Provider>
+    </DirectionContext.Provider>
   );
 }
 
